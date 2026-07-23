@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 Student Task Manager</title>
+    <link rel="stylesheet" href="style.css?v=4">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <div class="main-content">
+
+        <h1>🌸 Student Task Manager System</h1>
+
+         <div class="top-bar">
+
+    <h2 id="welcomeUser"></h2>
+
+    <button onclick="toggleDarkMode()" class="dark-btn">
+        🌙
+    </button>
+
+</div>
+
+         <p>Stay organized and complete your goals ✨</p>
+         <p id="todayDate"></p>
+
+        <h2>📊 Dashboard Overview</h2>
+
+        <div class="counter-box">
+
+            <div class="counter-card">
+                <h2 id="totalTasks">0</h2>
+                <p>📋 Total Tasks</p>
+            </div>
+
+            <div class="counter-card">
+                <h2 id="pendingTasks">0</h2>
+                <p>🟡 Pending</p>
+            </div>
+
+            <div class="counter-card">
+                <h2 id="completedTasks">0</h2>
+                <p>✅ Completed</p>
+            </div>
+</div>
+
+        </div>
+        <div class="progress-section">
+
+    <div class="progress-header">
+        <h3>📈 Task Progress</h3>
+        <span id="progressText">0%</span>
+    </div>
+
+    <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+    </div>
+
+</div>
+        <div class="chart-section">
+<div class="motivation-card">
+    <h3>🌟 Motivation</h3>
+    <p id="motivationText">Keep going! Every completed task brings you closer to your goal.</p>
+</div>
+    <div class="streak-card">
+        <h3>🔥 Task Completion Streak</h3>
+        <h2 id="streakCount">0</h2>
+        <p>Completed Tasks</p>
+    </div>
+    <div class="chart-card">
+        <h2>📊 Task Analytics</h2>
+        <canvas id="taskChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h2>📊 Priority Analytics</h2>
+        <canvas id="priorityChart"></canvas>
+    </div>
+
+</div>
+<h2 class="section-title">🗓️ Upcoming Schedule</h2>
+
+<div class="calendar-container">
+    <div id="calendar"></div>
+</div>
+
+        <div class="content">
+
+    <h2 class="section-title">📝 Add New Task</h2>
+
+    <!-- Add Task -->
+    <div class="task-form">
+
+                <h2>✨ Create New Task</h2>
+
+                <input id="title" placeholder="Task Title">
+
+<input id="description" placeholder="Description">
+
+<select id="priority">
+    <option value="High">◆ High</option>
+    <option value="Medium">◈ Medium</option>
+    <option value="Low">◇ Low</option>
+</select>
+
+<input id="due_date" type="date">
+                <input type="hidden" id="taskId">
+
+                <button id="taskBtn" onclick="addTask()">Add Task</button>
+
+            </div>
+
+ <!-- Your Tasks -->
+<div class="tasks-section">
+
+    <div class="tasks-header">
+    <h2>📚 Your Tasks</h2>
+     <br>    
+</div>
+
+    <div class="filter-buttons">
+    <button class="filter-btn active" onclick="setActive(this);filterTasks('All')">🌸 All</button>
+
+    <button class="filter-btn" onclick="setActive(this);filterTasks('Pending')">🟡 Pending</button>
+
+    <button class="filter-btn" onclick="setActive(this);filterTasks('Completed')">✅ Completed</button>
+
+    <button class="filter-btn" onclick="setActive(this);filterFavorites()">⭐ Favorites</button>
+    <button onclick="playReminderSound()">🔊 Test Sound</button>
+</div>
+
+    <select id="sortTasks" onchange="sortTasks()">
+        <option value="default">↕ Sort Tasks</option>
+        <option value="priority">⭐ Priority</option>
+        <option value="due">📅 Due Date</option>
+        <option value="title">🔤 A-Z</option>
+    </select>
+
+<button onclick="downloadPDF()" class="export-btn">
+    📄 Export Tasks to PDF
+</button>
+    <input
+        type="text"
+        id="searchTask"
+        placeholder="🔎 Search Tasks..."
+        onkeyup="searchTasks()"
+    >
+</div>
+
+    <div id="taskList" class="task-container"></div>
+
+</div>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js?v=3"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+</body>
+</html>
+<footer class="footer">
+    🌸 Student Task Manager | Developed by Shaik Fouziya
+</footer>
