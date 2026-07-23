@@ -20,9 +20,8 @@ mongo.init_app(app)
 
 
 # Import routes
-from routes.auth import auth
-from routes.tasks import task
-
+from auth import auth
+from tasks import task
 
 # Register routes
 app.register_blueprint(auth, url_prefix="/auth")
