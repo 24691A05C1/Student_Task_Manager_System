@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:5000";
+const API = "https://student-task-manager-system.onrender.com";
 let allTasks = [];
 
 let reminderAudio = new Audio("sound/notification.mp3");
