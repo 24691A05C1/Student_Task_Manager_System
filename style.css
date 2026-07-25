@@ -1176,3 +1176,56 @@ align-items:flex-start;
     font-weight:700;
     margin:35px 0 20px;
 }
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+
+    .stats {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .filter-btn {
+        flex: 1 1 45%;
+    }
+
+    .task-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .task-buttons button {
+        flex: 1 1 100%;
+    }
+
+    .task-card {
+        width: 100%;
+    }
+
+    .container,
+    .card {
+        width: 95%;
+        margin: auto;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
