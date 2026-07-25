@@ -45,17 +45,31 @@ if (name === "" || email === "" || password === "") {
         },
         body: JSON.stringify(data)
     })
-    .then(res => res.json())
-    .then(data => {
+    .then(async (res) => {
+    const data = await res.json();
 
-        document.getElementById("message").innerHTML =
-        "🌸 Account Created Successfully!";
+    if (!res.ok) {
+        Swal.fire({
+            icon: "error",
+            title: "Registration Failed",
+            text: data.message,
+            confirmButtonColor: "#F48FB1"
+        });
+        return;
+    }
 
-        setTimeout(() => {
-            window.location.href = "login.html";
-        }, 1500);
-
+    Swal.fire({
+        title: "🎉 Account Created!",
+        text: "Your account has been created successfully.",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+        background: "#FFF8FC",
+        color: "#5B4B8A"
+    }).then(() => {
+        window.location.href = "login.html";
     });
+});
 
 }
 
