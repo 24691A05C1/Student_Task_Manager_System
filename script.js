@@ -45,31 +45,22 @@ if (name === "" || email === "" || password === "") {
         },
         body: JSON.stringify(data)
     })
-    .then(async (res) => {
-    const data = await res.json();
+    .then(res => res.json())
+    .then(data => {
 
-    if (!res.ok) {
         Swal.fire({
-            icon: "error",
-            title: "Registration Failed",
-            text: data.message,
-            confirmButtonColor: "#F48FB1"
-        });
-        return;
-    }
-
-    Swal.fire({
-        title: "🎉 Account Created!",
-        text: "Your account has been created successfully.",
-        icon: "success",
-        timer: 1500,
-        showConfirmButton: false,
-        background: "#FFF8FC",
-        color: "#5B4B8A"
-    }).then(() => {
-        window.location.href = "login.html";
-    });
+    title: "🎉 Account Created!",
+    text: "Your account has been created successfully.",
+    icon: "success",
+    timer: 1500,
+    showConfirmButton: false,
+    background: "#FFF8FC",
+    color: "#5B4B8A"
+}).then(() => {
+    window.location.href = "login.html";
 });
+
+    });
 
 }
 
@@ -112,16 +103,16 @@ if(data.token){
     localStorage.setItem("userName", data.name);
 
     Swal.fire({
-        title: "Login Successful",
-        text: "Welcome back!",
-        icon: "success",
-        timer: 1500,
-        showConfirmButton: false,
-        background: "#FFF8FC",
-        color: "#5B4B8A"
-    }).then(() => {
-        window.location.href = "dashboard.html";
-    });
+    title: "Login Successful",
+    text: "Welcome back!",
+    icon: "success",
+    timer: 1500,
+    showConfirmButton: false,
+    background: "#FFF8FC",
+    color: "#5B4B8A"
+}).then(() => {
+    window.location.href = "dashboard.html";
+});
 
 }else{
 
