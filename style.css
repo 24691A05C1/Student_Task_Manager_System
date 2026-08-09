@@ -381,16 +381,16 @@ p{
 }
 /* ---------- Login & Register ---------- */
 
-.card{
+.card {
     position: relative;
     z-index: 1;
-    width:420px;
-    margin:80px auto;
-    background:#ffffff;
-    padding:40px;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    text-align:center;
+    width: 420px;
+    margin: 80px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
 }
 .card h1{
     color:#d45b86;
@@ -1177,20 +1177,20 @@ align-items:flex-start;
     font-weight:700;
     margin:35px 0 20px;
 }
-.swal2-container {
+/* SweetAlert - keep popup over login card */
+body > .swal2-container {
     position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     z-index: 999999 !important;
 }
 
-.swal2-popup {
+body > .swal2-container .swal2-popup {
+    position: relative !important;
     margin: 0 !important;
+    transform: none !important;
 }
